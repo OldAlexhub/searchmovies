@@ -7,6 +7,7 @@ const SearchByPlot = () => {
     userQuery: "",
   });
   const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -16,6 +17,8 @@ const SearchByPlot = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(""); // Reset error message before each request
+    setLoading(true); // Set loading to true when the search starts
+    setResults([]); // Clear previous results
 
     try {
       const response = await axios.post(
@@ -33,6 +36,7 @@ const SearchByPlot = () => {
       console.error("Error occurred during API request:", error);
       setError("Server error occurred. Please try again later.");
     }
+    setLoading(false); // Set loading to false when the search is complete
   };
 
   return (
@@ -82,8 +86,18 @@ const SearchByPlot = () => {
         </div>
       </div>
 
+      {/* Loading Feedback */}
+      {loading && (
+        <div className="text-center mt-5">
+          <h3>🚀 Searching the cosmos for your top 5 movies...</h3>
+          <p className="text-muted">
+            Hold tight as our AI scours the universe to find your perfect match!
+          </p>
+        </div>
+      )}
+
       {/* Display Search Results */}
-      {results.length > 0 && (
+      {!loading && results.length > 0 && (
         <div className="mt-5">
           <h3 className="text-center mb-4">Search Results:</h3>
           <div className="row">
@@ -116,7 +130,7 @@ const SearchByPlot = () => {
       )}
 
       {/* No Results */}
-      {results.length === 0 && !error && (
+      {!loading && results.length === 0 && !error && (
         <div className="mt-5 text-center">
           <p>No results found for your search query.</p>
         </div>
