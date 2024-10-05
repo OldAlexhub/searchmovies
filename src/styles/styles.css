@@ -1,0 +1,57 @@
+/* Card Styles for Movie Results */
+.movie-card {
+  background-color: #1c1c1c;
+  color: #fff;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card .movie-poster {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+  height: 300px;
+}
+
+.movie-card .card-body {
+  padding: 15px;
+}
+
+.movie-card .card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f9ca24;
+}
+
+.movie-plot {
+  font-size: 0.9rem;
+  color: #bdc3c7;
+  height: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.movie-card .card-text {
+  font-size: 0.85rem;
+}
+
+/* Additional styles for gradient and general layout */
+.container {
+  background: linear-gradient(to bottom, #2c3e50, #34495e);
+  padding: 50px 20px;
+  border-radius: 15px;
+}
+
+h2,
+h3 {
+  color: #ecf0f1;
+}
