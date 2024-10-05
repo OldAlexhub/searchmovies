@@ -19,7 +19,7 @@ const SearchByPlot = () => {
 
     try {
       const response = await axios.post(
-        process.env.REACT_APP_SEARCH_MOVIES, // Ensure this environment variable is correctly set
+        process.env.REACT_APP_SEARCH_MOVIES,
         formData
       );
 
