@@ -20,5 +20,5 @@ This is the frontend for the Movie Search Application, built using **ReactJS**. 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/movie-search-frontend.git
+   git clone https://github.com/OldAlexhub/searchmovies.git
    ```
